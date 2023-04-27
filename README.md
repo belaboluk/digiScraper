@@ -40,5 +40,5 @@ $ pip install requests
 
 ## Examples
 
-currently i don't have any examples but i will add some example to how get every attribute you want from digikala.
+i added 4 example for getting overall view of a product, question, commects(reviews) and all sellers  info in example folder
 
