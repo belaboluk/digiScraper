@@ -1,0 +1,14 @@
+# python chach will be ignored
+DigiScraper/__pycache__
+
+# download folder will be ignored
+DigiScraper/media
+
+# json files also be ignored
+DigiScraper/json
+
+# redult csv file will be ignored
+DigiScraper/result
+
+# main.py in src file is ignored also maybe i will delete it and put it in exapmles
+DigiScraper/main.py
