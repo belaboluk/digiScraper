@@ -18,7 +18,7 @@ some capability of this scraper is:
 1. fist of first install `python`from official website.
 2. then clone the repository with command below.
 ```bash
-$ git clone https://github.com/abdollahraeisi/digiScraper.git
+$ git clone https://github.com/belaboluk/digiScraper.git
 ```
 3. copy the `/src` directory to your main python code.
 4. import `digikala.py` to the main python file.
@@ -29,7 +29,7 @@ from digikala import DigiKala
 digi = DigiKala()
 page = digi.getProduct(url)
 ```
-6. use the `page` attrebutes to extract what you want.:smile:
+6. use the `page` attrebutes to extract what you want. :smile:
 
 # Dependences
 

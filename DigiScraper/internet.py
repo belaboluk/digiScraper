@@ -1,7 +1,7 @@
 import requests
 import json
 
-API_BASE_URL = "https://api.digikala.com/v1/product/"
+API_BASE_URL = "https://api.digikala.com/v2/product/"
 API_COMMENT_URL = "https://api.digikala.com/v1/product/%ID/comments/?page=%PAGE"
 API_QUESTION_URL = "https://api.digikala.com/v1/product/%ID/questions/?page=%PAGE"
 

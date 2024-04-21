@@ -75,7 +75,7 @@ class Answer():
         self.type = data["type"]
 
         if self.isSeller():
-            self.seller = Seller(data["seller"])
+            self.sellerName = data["sender"]
 
 
     def isSeller(self) -> bool:

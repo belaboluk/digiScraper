@@ -6,7 +6,7 @@ class Seller():
     def __init__(self, data) -> None:
         """
         class to manage seller infos
-        used in question, reviews and shops
+        used in reviews and shops
         """
         self.id = data["id"]
         self.name = data["title"]
