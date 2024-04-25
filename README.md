@@ -12,6 +12,8 @@ some capability of this scraper is:
 * All questions about product with the answers.
 * Full static of the product such as collers, full rating system, stars and ...
 * Builtin function to get .csv output for reviews and questions.
+* Full suggestion and autocomplite 
+* Full implementation of Filters and Sort System
 
 # How to use
 
@@ -40,5 +42,6 @@ $ pip install requests
 
 ## Examples
 
-i added 4 example for getting overall view of a product, question, commects(reviews) and all sellers  info in example folder
+i added 4 example for getting overall view of a product, question, commects(reviews) and all sellers  info in example folder/
+also added a search example to show how use search funtionality and reterviving the results
 
