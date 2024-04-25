@@ -56,4 +56,6 @@ print(len(result.products))
 # getting search result of manual search (without any digikala suggestion)
 result = digi.search("کیف", 2)
 print(len(result.products))
-
+p = result.products[0]
+print(f"{p.title}[{p.rate}]: {p.price}")
+print(p.url)
