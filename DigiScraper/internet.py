@@ -1,9 +1,14 @@
 import requests
 import json
 
+DIGIKALA_URL = "https://www.digikala.com"
 API_BASE_URL = "https://api.digikala.com/v2/product/"
 API_COMMENT_URL = "https://api.digikala.com/v1/product/%ID/comments/?page=%PAGE"
 API_QUESTION_URL = "https://api.digikala.com/v1/product/%ID/questions/?page=%PAGE"
+API_SUGGESTION_URL = "https://api.digikala.com/v1/autocomplete/?q=%TEXT"
+API_SEARCH_BASE_URL = "https://api.digikala.com/v1"
+API_SEARCH_WITH_CATEGORY_URL = API_SEARCH_BASE_URL + "/categories/%CATEGORY/search/"
+API_SEARCH_WITHOUT_CATEGORY_URL = API_SEARCH_BASE_URL + "/search/"
 
 class Internet():
     def __init__(self) -> None:
@@ -59,6 +64,31 @@ class Internet():
         url = API_QUESTION_URL.replace("%ID", str(id)).replace("%PAGE", str(page))
         res = self._session.get(url)
         if res.ok:
+            return json.loads(res.text)["data"]
+        else:
+            return {}
+
+    
+    def search(self, url:str):
+        """
+        get the produsts when searching text
+        every page is contain 20 product
+        """
+        res = self._session.get(url)
+        if res.ok:
+            return json.loads(res.text)["data"]
+        else:
+            return {}
+        
+
+
+    def getSuggestions(self, text:str):
+        """
+        get digikala search suggestions
+        """
+        url = API_SUGGESTION_URL.replace("%TEXT", text)
+        res = self._session.get(url)
+        if (res.ok):
             return json.loads(res.text)["data"]
         else:
             return {}

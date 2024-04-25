@@ -1,6 +1,6 @@
 from .brand import Brand
 from .utils import Color, Size, Media, DigiPlus, getIfExists
-from .internet import Internet
+from .internet import Internet, DIGIKALA_URL
 from .seller import Market
 from .review import ReviewCollection
 from .question import QuestionCollection
@@ -114,3 +114,45 @@ class Product():
         if self.__specialOffer != "":
             return True
         return False
+
+
+class ProductBanner:
+    def __init__(self, internet:Internet, data:dict) -> None:
+        self.id = data["id"]
+        self.title = data["title_fa"]
+        self.url = DIGIKALA_URL + data["url"]["uri"]
+        self.status = data["status"]
+        self.image = Media(data["images"]["main"]["url"][0], data["images"]["main"]["url"][0], type_="image")
+        self.rateCount = data["rating"]["count"]
+        self.rate = data["data_layer"]["dimension9"]
+        if getIfExists(data, "colors"):
+            self.colors = []
+            for color in data["colors"]:
+                self.colors.append(Color(color["title"], color["hex_code"]))
+
+        # getting defautl market and price and if out of stock the default market will be None
+        try:
+            self.defaultMarket = Market(data["default_variant"])
+            self.price = self.defaultMarket.price
+            self.discount = self.defaultMarket.discountPercentage
+        except KeyError:
+            self.defaultMarket = None
+
+        self.digiPlus = DigiPlus(data["digiplus"])
+        self.categoryPipeLine = self.__extractCategoryPipeline(data["data_layer"])
+        self.__specialOffer = data["data_layer"]["dimension7"]\
+        
+
+    def __extractCategoryPipeline(sself, data):
+        c = []
+        for i in ["item_category2", "item_category3", "item_category4", "item_category5"]:
+            if data[i] != "":
+                c.append(data[i])
+        return c
+    
+    def isSpecialOffer(self):
+        if self.__specialOffer != "":
+            return True
+        return False
+        
+

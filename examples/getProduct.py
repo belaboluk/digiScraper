@@ -1,6 +1,7 @@
 import sys
 from pathlib import Path
 sys.path.append(str(Path(__file__).parents[1]))
+print(Path(__file__).parents[1])
 
 from DigiScraper import digikala
 
